@@ -4,6 +4,9 @@ import morgan from 'morgan';
 import { config } from './src/config/config.js';
 import ConnectDataBase from './src/db/connection.js';
 import productRoutes from './src/routes/product.routes.js';
+import userRoutes from './src/routes/user.routes.js';
+import { sequelize } from './src/db/configDB.js';
+
 
 
 class Server {
@@ -17,7 +20,8 @@ class Server {
 
     async connectDB() {
         await this.connectDataBase.connect();
-    };
+        await sequelize.sync({ force: false });
+    }
 
     middlewares() {
         this.app.use(cors());
@@ -27,6 +31,7 @@ class Server {
 
     routes() {
         this.app.use('/api/products', productRoutes);
+        this.app.use('/api/users', userRoutes);
     };
 
     async listen() {

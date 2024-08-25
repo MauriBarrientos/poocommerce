@@ -18,7 +18,7 @@ class ProductController {
       const product = req.body;
       const newProduct = await productServices.create(product);
       res.status(201).json(newProduct);
-    } catch (error) {
+    } catch (error) { 
       return CatchError(error, res);
     };
   };
