@@ -5,6 +5,7 @@ import { config } from './src/config/config.js';
 import ConnectDataBase from './src/db/connection.js';
 import productRoutes from './src/routes/product.routes.js';
 import userRoutes from './src/routes/user.routes.js';
+import cartRoutes from './src/routes/cart.routes.js';
 import { sequelize } from './src/db/configDB.js';
 
 
@@ -32,6 +33,7 @@ class Server {
     routes() {
         this.app.use('/api/products', productRoutes);
         this.app.use('/api/users', userRoutes);
+        this.app.use('/api/cart', cartRoutes);
     };
 
     async listen() {

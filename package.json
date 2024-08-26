@@ -1,11 +1,11 @@
 {
-  "name": "e-commerceserver",
+  "name": "poocommerce",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node --env-file .env.example --watch index.js",
-    "start": "node --env-file .env.example index.js",
+    "dev": "node --env-file .env --watch index.js",
+    "start": "node --env-file .env index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
