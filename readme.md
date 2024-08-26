@@ -33,8 +33,6 @@ DB_PORT=
 DB_DIALECT=   
 
 
-## Running the Server
-
 Para iniciar el servidor ejecuta el siguiente comando:
 
 ```bash
