@@ -7,7 +7,10 @@ import setRelations from './src/models/relations.js';
 import productRoutes from './src/routes/product.routes.js';
 import userRoutes from './src/routes/user.routes.js';
 import cartRoutes from './src/routes/cart.routes.js';
+<<<<<<< HEAD
 import buySaleRoutes from './src/routes/buy&Sale.routes.js';
+=======
+>>>>>>> 4fd3f482d65bae980cb8129221f0070e5f1fac41
 import { sequelize } from './src/db/configDB.js';
 
 
@@ -40,8 +43,12 @@ class Server {
     routes() {
         this.app.use('/api/products', productRoutes);
         this.app.use('/api/users', userRoutes);
+<<<<<<< HEAD
         this.app.use('/api/carts', cartRoutes);
         this.app.use('/api/buys', buySaleRoutes);
+=======
+        this.app.use('/api/cart', cartRoutes);
+>>>>>>> 4fd3f482d65bae980cb8129221f0070e5f1fac41
     };
 
     async listen() {
