@@ -6,7 +6,7 @@ const {
     findAll,
     create,
     update,
-    delete: deleteProduct,
+    deleteProduct,
     findById
 } = productConntroller;
 

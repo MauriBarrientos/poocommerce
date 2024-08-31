@@ -1,4 +1,4 @@
-import cartControllers from "../controllers/cartControllers";
+import cartControllers from "../controllers/cartControllers.js";
 import { Router } from "express"; 
 
 const cartRoutes = Router();
@@ -6,7 +6,7 @@ const {
     findAll,
     create,
     update,
-    delete: deleteCart,
+    deleteCart,
     findById
 } = cartControllers;
 

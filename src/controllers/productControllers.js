@@ -34,7 +34,7 @@ class ProductController {
     };
   };
 
-  async delete(req, res) {
+  async deleteProduct(req, res) {
     try {
       const id = req.params.id;
       await productServices.delete(id);

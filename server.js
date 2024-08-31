@@ -3,8 +3,11 @@ import cors from 'cors';
 import morgan from 'morgan';
 import { config } from './src/config/config.js';
 import ConnectDataBase from './src/db/connection.js';
+import setRelations from './src/models/relations.js';
 import productRoutes from './src/routes/product.routes.js';
 import userRoutes from './src/routes/user.routes.js';
+import cartRoutes from './src/routes/cart.routes.js';
+import buySaleRoutes from './src/routes/buy&Sale.routes.js';
 import { sequelize } from './src/db/configDB.js';
 
 
@@ -14,8 +17,13 @@ class Server {
         this.app = express();
         this.port = config.PORT;
         this.connectDataBase = new ConnectDataBase();
+        this.setRelations();
         this.middlewares();
         this.routes();
+    };
+
+    setRelations(){
+        setRelations();
     };
 
     async connectDB() {
@@ -32,6 +40,8 @@ class Server {
     routes() {
         this.app.use('/api/products', productRoutes);
         this.app.use('/api/users', userRoutes);
+        this.app.use('/api/carts', cartRoutes);
+        this.app.use('/api/buys', buySaleRoutes);
     };
 
     async listen() {
