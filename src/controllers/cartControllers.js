@@ -1,9 +1,10 @@
-<<<<<<< HEAD
-import cartServices from "../services/cartServices.js";
+import cartServices from '../services/cartServices.js';
+import { CatchError } from '../utils/CatchError.js';
 
 class CartController {
     constructor() {};
 
+    // Método para obtener todos los carritos
     async findAll(_req, res) {
         try {
             const carts = await cartServices.findAll();
@@ -13,6 +14,7 @@ class CartController {
         };
     };
 
+    // Método para crear un carrito
     async create(req, res) {
         try {
             const cart = req.body;
@@ -23,6 +25,7 @@ class CartController {
         };
     };
 
+    // Método para actualizar un carrito por ID
     async update(req, res) {
         try {
             const id = req.params.id;
@@ -34,6 +37,7 @@ class CartController {
         };
     };
 
+    // Método para eliminar un carrito por ID
     async deleteCart(req, res) {
         try {
             const id = req.params.id;
@@ -44,31 +48,18 @@ class CartController {
         };
     };
 
-    async findById(req, res) {
-        try {
-            const id = req.params.id;
-            const cart = await cartServices.findById(id);
-=======
-import cartServices from '../services/CartServices.js';
-import {CatchError} from '../utils/CatchError.js';
-
-class CartController {
+    // Método para obtener el carrito de un usuario específico
     async getCart(req, res) {
         try {
             const userId = req.userId;
             const cart = await cartServices.findByUserId(userId);
->>>>>>> 4fd3f482d65bae980cb8129221f0070e5f1fac41
             res.status(200).json(cart);
         } catch (error) {
             return CatchError(error, res);
         };
     };
 
-<<<<<<< HEAD
-};
-
-export default new CartController();
-=======
+    // Método para agregar un artículo al carrito
     async addItem(req, res) {
         try {
             const userId = req.userId;
@@ -80,16 +71,18 @@ export default new CartController();
         };
     };
 
+    // Método para eliminar un artículo del carrito
     async removeItem(req, res) {
         try {
             const { itemId } = req.params;
-            await CartServices.removeItem(itemId);
+            await cartServices.removeItem(itemId);
             res.status(200).json({ message: "Item removed from cart" });
         } catch (error) {
             return CatchError(error, res);
         };
     };
 
+    // Método para limpiar el carrito de un usuario
     async clearCart(req, res) {
         try {
             const userId = req.userId;
@@ -102,4 +95,3 @@ export default new CartController();
 }
 
 export default new CartController();
->>>>>>> 4fd3f482d65bae980cb8129221f0070e5f1fac41
